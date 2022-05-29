@@ -1,6 +1,6 @@
 package locadora;
 
-public class Cliente {
+public class Cliente{
     private String nome;
     private String CNH;
     private String telefone;
