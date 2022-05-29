@@ -1,17 +1,17 @@
 package locadora;
 
-public class clientes {
+public class Clientes{
 
     private NohCliente inicio;
     private NohCliente fim;
 
-    public clientes (){
+    public Clientes(){
         this.inicio = null;
         this.fim = null;
     }
 
-     public void inserirCliente(cliente info) { 
-        NohCliente novo = new NohCliente(info);
+     public void inserirCliente(Cliente Cliente) { 
+        NohCliente novo = new NohCliente(Cliente);
         if (fim == null){
             inicio = novo;
             fim = novo;
@@ -54,7 +54,7 @@ public class clientes {
      }
 
     public NohCliente busca(NohCliente p, String CPF){
-        while (p!=null && !CPF.equals(p.getInfo().getCPF())){//busca
+        while (p!=null && !CPF.equals(p.getCliente().getCPF())){//busca
             p = p.getProx();
         }
         return p;
@@ -64,14 +64,14 @@ public class clientes {
         if(asc == 1){
             NohCliente p = inicio;
             while (p!=null){
-                System.out.println("Cliente: "+p.getInfo().toString());
+                System.out.println("Cliente: "+p.getCliente().toString());
                 p = p.getProx();
             }
         }
         else if(asc == 0){
             NohCliente f = fim;
             while (f!=null){
-                System.out.println("Cliente: "+f.getInfo().toString());
+                System.out.println("Cliente: "+f.getCliente().toString());
                 f = f.getAnt();
             }
         }
@@ -81,7 +81,7 @@ public class clientes {
     public void editar(String CPF, String nome, String CNH, String telefone){
         NohCliente p = inicio;
         p = busca(p, CPF);
-        cliente pessoa = p.getInfo();
+        Cliente pessoa = p.getCliente();
         if(!nome.equals("")){
             pessoa.setNome(nome);
         }

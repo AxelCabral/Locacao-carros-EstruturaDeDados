@@ -1,12 +1,12 @@
 package locadora;
 
-public class cliente {
+public class Cliente {
     private String nome;
     private String CNH;
     private String telefone;
     private String CPF;
 
-    public cliente(String nome, String CNH, String telefone, String CPF) {
+    public Cliente(String nome, String CNH, String telefone, String CPF) {
         this.nome = nome;
         this.CNH = CNH;
         this.telefone = telefone;

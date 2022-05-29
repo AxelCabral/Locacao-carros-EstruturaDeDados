@@ -9,7 +9,7 @@ public class Veiculos {
         this.fim = null;
     }
 
-    public int tamanhoVeiculos(){
+    public int tamanho(){
         NohVeiculos p = inicio;
         int i = 0;
         while (p!=null){
@@ -51,19 +51,43 @@ public class Veiculos {
         return true;
     }
 
-    public void imprimeVeiculos(){
-        NohVeiculos p = inicio;
-        while (p!=null){ 
-            System.out.println(p.getVeiculo());
-            p = p.getProx();
-        }
-    }
-
     public NohVeiculos busca(NohVeiculos p, String placa){
-        while (p!=null && !placa.equals((p().getPlaca()){
+        while (p!=null && !placa.equals(p.getVeiculo().getPlaca())){//busca
             p = p.getProx();
         }
         return p;
+    }
+
+    public void imprime(int asc){
+        if(asc == 1){
+            NohVeiculos p = inicio;
+            while (p!=null){
+                System.out.println("Veiculo: "+p.getVeiculo().toString());
+                p = p.getProx();
+            }
+        }
+        else if(asc == 0){
+            NohVeiculos f = fim;
+            while (f!=null){
+                System.out.println("Veiculo: "+f.getVeiculo().toString());
+                f = f.getAnt();
+            }
+        }
+    }
+
+    public void editar(String placa, String modelo, String marca, int ano, int potencia, int num_lugares, Categoria categoria){
+        NohVeiculos p = inicio;
+        p = busca(p, placa);
+        Veiculo veiculo = p.getVeiculo();
+        if(!modelo.equals("") && !marca.equals("") && ano != 0 && potencia != 0 &&
+        num_lugares != 0 && categoria != null){
+            veiculo.setModelo(modelo);
+            veiculo.setMarca(marca);
+            veiculo.setAno(ano);
+            veiculo.setPotencia(potencia);
+            veiculo.setNum_lugares(num_lugares);
+            veiculo.setCategoria(categoria);
+        }
     }
 
 }

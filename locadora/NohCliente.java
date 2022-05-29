@@ -1,18 +1,18 @@
 package locadora;
 
 public class NohCliente {
-    private cliente info;
+    private Cliente cliente;
     private NohCliente ant; 
     private NohCliente prox;
 
-    public NohCliente (cliente info){
-    this.info = info;
+    public NohCliente (Cliente cliente){
+    this.cliente = cliente;
     this.ant = null;
     this.prox = null;
     }
 
-    public cliente getInfo() {
-        return this.info;
+    public Cliente getCliente() {
+        return this.cliente;
      }
     public NohCliente getProx() {
         return this.prox;
