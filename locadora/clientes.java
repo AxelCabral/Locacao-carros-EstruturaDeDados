@@ -2,29 +2,16 @@ package locadora;
 
 public class clientes {
 
-    private Noh inicio;
-    private Noh fim;
-    
+    private NohCliente inicio;
+    private NohCliente fim;
+
     public clientes (){
         this.inicio = null;
         this.fim = null;
     }
 
-    public void insereInicio(Object info) {
-        Noh novo = new Noh(info);
-        if (inicio == null){
-            inicio = novo;
-            fim = novo;
-        }
-        else {
-            novo.setProx(inicio);
-            inicio.setAnt(novo);
-            inicio = novo;
-        }
-     }
-
-     public void insereFim(Object info) { 
-        Noh novo = new Noh(info);
+     public void inserirCliente(cliente info) { 
+        NohCliente novo = new NohCliente(info);
         if (fim == null){
             inicio = novo;
             fim = novo;
@@ -35,15 +22,8 @@ public class clientes {
         }
     }
 
-    public boolean estahVazia() {
-        if(tamanho() == 0){
-            return true;
-        }
-        return false;
-     }
-
      public int tamanho() {         
-        Noh p = inicio;
+        NohCliente p = inicio;
         int i = 0;
         while (p!=null){ 
             p = p.getProx();
@@ -52,9 +32,9 @@ public class clientes {
         return i;
     }
 
-    public boolean remove(Object info) {
-        Noh p = inicio;
-        p = busca(p, info);
+    public boolean removerCliente(String CPF) {
+        NohCliente p = inicio;
+        p = busca(p, CPF);
         if (p==null){ 
             return false;
         }
@@ -73,25 +53,44 @@ public class clientes {
         return true;
      }
 
-    public Noh busca(Noh p, Object info){
-        while (p!=null && p.getInfo() != info){//busca
+    public NohCliente busca(NohCliente p, String CPF){
+        while (p!=null && !CPF.equals(p.getInfo().getCPF())){//busca
             p = p.getProx();
         }
         return p;
     }
 
-    public void imprime(){
-        Noh p = inicio;
-        System.out.println("Ascendente: ");
-        while (p!=null){
-            System.out.println("Aluno: "+p.getInfo().toString());
-            p = p.getProx();
+    public void imprime(int asc){
+        if(asc == 1){
+            NohCliente p = inicio;
+            while (p!=null){
+                System.out.println("Cliente: "+p.getInfo().toString());
+                p = p.getProx();
+            }
         }
-        System.out.println("Descendente: ");
-        Noh f = fim;
-        while (f!=null){
-            System.out.println("Aluno: "+f.getInfo().toString());
-            f = f.getAnt();
+        else if(asc == 0){
+            NohCliente f = fim;
+            while (f!=null){
+                System.out.println("Cliente: "+f.getInfo().toString());
+                f = f.getAnt();
+            }
+        }
+
+    }
+
+    public void editar(String CPF, String nome, String CNH, String telefone){
+        NohCliente p = inicio;
+        p = busca(p, CPF);
+        cliente pessoa = p.getInfo();
+        if(!nome.equals("")){
+            pessoa.setNome(nome);
+        }
+        if(!CNH.equals("")){
+            pessoa.setCNH(CNH);
+        }
+        if(!telefone.equals("")){
+            pessoa.setTelefone(telefone);
         }
     }
+    
 }
