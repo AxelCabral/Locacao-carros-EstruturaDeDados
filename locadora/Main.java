@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.Locale.Category;
 
 public class Main {
     private static Clientes customers = new Clientes();
@@ -21,9 +22,6 @@ public class Main {
         Scanner input = new Scanner(System.in);
         int option;
 
-        // logLn("\n---------- ÁREA DE LOCAÇÕES ----------\n");
-        //           PRECISA FAZER FILTRO DOS VEÍCULOS
-        // logLn("--------------------------------------");
         Cliente david = new Cliente("David Maartins", "1172312663", "55998726363", "083648638");
         customers.inserirCliente(david);
         do {
@@ -156,6 +154,15 @@ public class Main {
 
         logLn("INSIRA O CNH DO CLIENTE: ");
         String cnh = input.nextLine();
+
+        logLn("INFORME OS DADOS DO VEÍCULO QUE ESTÁ BUSCANDO:");
+        logLn("DIGITE A POTÊNCIA MÍNIMA DO VEÍCULO:");
+        int Rpotencia= input.nextInt();
+        logLn("DIGITE O MÍNIMO DE NÚMERO DE LUGARES DO VEÍCULO:");
+        int RnLugares = input.nextInt();
+        categories.imprime(1);
+        logLn("DIGITE O ID DA CATEGORIA DO VEÍCULO:");
+        int Rcategoria= input.nextInt();
         
         logLn("VEÍCULOS DISPONÍVEIS PARA LOCAÇÃO: ");
         
@@ -163,14 +170,20 @@ public class Main {
         
         while (node != null) {
             Veiculo veiculo = node.getVeiculo();
+
             boolean vehicleAvailable = !rentals.existeVeiculoLocado(rentals.getInicio(), veiculo.getPlaca());
-            
-            if (vehicleAvailable) {
-                logLn(veiculo.toString());
+            if(vehicleAvailable){
+                if(veiculo.getNum_lugares() >= RnLugares){
+                    if(veiculo.getPotencia() >= Rpotencia){
+                        if(veiculo.getCategoria().getId() == Rcategoria){
+                            logLn(veiculo.toString());
+                        }
+                    }
+                }
             }
             node = node.getProx();
         }
-
+        input.nextLine();
         logLn("INSIRA A PLACA DO VEÍCULO DISPONÍVEL: ");
         String plate = input.nextLine();
         
