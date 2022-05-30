@@ -29,6 +29,6 @@ public class NohLocacao {
 
     @Override
     public String toString() {
-        return "[Locacao=" + Locacao;
+        return "[Locacao: " + Locacao;
     }
 }

@@ -54,8 +54,8 @@ public class Locacao {
 
     @Override
     public String toString() {
-        return "CNH=" + CNH + ", dataEntrega=" + dataEntrega + ", dataRetirada=" + dataRetirada + ", placa="
-                + placa + ", valor=" + valor;
+        return "CNH: " + CNH + "\nData de Entrega: " + dataEntrega + "\nData de Retirada: " + dataRetirada + "\nPlaca: "
+                + placa + "\nValor: " + valor+"\n\n";
     }
 
 }

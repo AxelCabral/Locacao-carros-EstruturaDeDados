@@ -21,7 +21,7 @@ public class Veiculos {
 
     public void inserirVeiculo(Veiculo veiculo){
         NohVeiculos novo = new NohVeiculos(veiculo);
-        NohVeiculos ultimo;
+        /*NohVeiculos ultimo;
         ultimo = null;
         if (inicio == null){
             inicio = novo;
@@ -31,6 +31,14 @@ public class Veiculos {
                 ultimo = i;
             }
             ultimo.setProx(novo);
+        }*/
+        if (fim == null){
+            inicio = novo;
+            fim = novo;
+        } else {
+            novo.setAnt(fim);
+            fim.setProx(novo);
+            fim = novo;
         }
     }
 

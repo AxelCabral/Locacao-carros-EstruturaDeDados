@@ -21,9 +21,6 @@ public class Main {
         Scanner input = new Scanner(System.in);
         int option;
 
-        // logLn("\n---------- ÁREA DE VEÍCULOS ----------\n");
-        //            TESTAR LISTAGEM COM ASC E DESC
-
         // logLn("\n---------- ÁREA DE LOCAÇÕES ----------\n");
         //           PRECISA FAZER FILTRO DOS VEÍCULOS
         // logLn("--------------------------------------");
@@ -47,7 +44,10 @@ public class Main {
                     break;
 
                 case 4:
-                    customers.imprime(1);
+                    Scanner inputCustomer = new Scanner(System.in);
+                    log("QUAL O TIPO DE CLASSIFICAÇAO?\n1 - Crescente\n0 - Decrescente\n\n> ");
+                    int typeSortCustomer = inputCustomer.nextInt();
+                    customers.imprime(typeSortCustomer);
                     break;
 
                 case 5:
@@ -118,7 +118,7 @@ public class Main {
         if(exists) {
             log("\nO CLIENTE " + cliente.getNome() + " ESTÁ ATRELADO A UMA LOCAÇÃO, VOCÊ NÃO PODE REMOVÊ-LO\n");
         } else {
-            customers.removerCliente(cpf);
+            customers.removerCliente(cliente);
             log("\nCLIENTE " + cpf + " EXCLUÍDO COM SUCESSO\n");
         }
     }
@@ -145,8 +145,9 @@ public class Main {
 
         logLn("INSIRA A PLACA DO VEÍCULO PARA DEVOLUÇÃO: ");
         String plate = input.nextLine();
-        
-        rentals.removerLocacao(plate);
+        NohLocacao nohLocacao = rentals.busca(rentals.getInicio(), plate);
+        Locacao locacao = nohLocacao.getLocacao();
+        rentals.removerLocacao(locacao);
         logLn("\n DEVOLUÇÃO DE VEÍCULO REALIZADA COM SUCESSO\n");
     }
 

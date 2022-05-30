@@ -80,8 +80,8 @@ public class Veiculo {
 
     @Override
     public String toString() {
-        return "ano=" + ano + ", categoria=" + categoria + ", marca=" + marca + ", modelo=" + modelo
-                + ", num_lugares=" + num_lugares + ", placa=" + placa + ", potencia=" + potencia;
+        return "Ano: " + ano + " \nCategoria: " + categoria + "Marca: " + marca + " \nModelo: " + modelo
+                + " \nNúmero de lugares: " + num_lugares + " \nPlaca: " + placa + " \nPotencia: " + potencia+"\n\n";
     }
 
 }

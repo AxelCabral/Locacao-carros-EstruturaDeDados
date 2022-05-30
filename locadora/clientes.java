@@ -32,24 +32,20 @@ class Clientes {
         return i;
     }
 
-    public boolean removerCliente(String CPF) {
-        NohCliente p = inicio;
-        p = busca(p, CPF);
-        if (p==null){ 
-            return false;
+    public boolean removerCliente(Cliente cliente) {
+        NohCliente ant, p;
+        p = inicio;
+        ant = null;
+        while (p!=null && p.getCliente() != cliente){ //busca
+            ant = p;
+            p = p.getProx();
         }
-        if (p.getAnt() == null){ 
-            inicio = p.getProx();
-            inicio.setAnt(null);
-        } 
-        else if (p.getProx() == null){ 
-            p.getAnt().setProx(null);
-            fim = p.getAnt();
-        } 
-        else { 
-            p.getAnt().setProx(p.getProx());
-            p.getProx().setAnt(p.getAnt());
-        }
+        if (p==null)
+        return false;
+        if (ant==null)
+        inicio = p.getProx();
+        else
+        ant.setProx(p.getProx());
         return true;
      }
 
