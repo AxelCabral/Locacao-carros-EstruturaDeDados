@@ -86,4 +86,8 @@ public class Categorias {
             categoria.setNome(nome);
         }
     }
+
+    public NohCategoria getInicio() {
+        return this.inicio;
+    }
 }

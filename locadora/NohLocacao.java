@@ -25,5 +25,10 @@ public class NohLocacao {
      }
     public void setAnt(NohLocacao n) { 
         this.ant = n;
-     }
+    }
+
+    @Override
+    public String toString() {
+        return "[Locacao=" + Locacao;
+    }
 }

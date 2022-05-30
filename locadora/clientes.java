@@ -1,6 +1,6 @@
 package locadora;
 
-public class Clientes{
+class Clientes {
 
     private NohCliente inicio;
     private NohCliente fim;
@@ -91,6 +91,14 @@ public class Clientes{
         if(!telefone.equals("")){
             pessoa.setTelefone(telefone);
         }
+    }
+
+    public NohCliente getInicio() {
+        return inicio;
+    }
+
+    public NohCliente getFim() {
+        return fim;
     }
     
 }

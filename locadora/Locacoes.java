@@ -60,6 +60,20 @@ public class Locacoes {
         return p;
     }
 
+    public boolean existeVeiculoLocado(NohLocacao p, String placa){
+        while (p!=null && !placa.equals(p.getLocacao().getPlaca())){//busca
+            p = p.getProx();
+        }
+        return p != null;
+    }
+
+    public boolean existeClienteVinculado(NohLocacao p, String cnh){
+        while (p!=null && !cnh.equals(p.getLocacao().getCNH())){//busca
+            p = p.getProx();
+        }
+        return p != null;
+    }
+
     public void imprime(int asc){
         if(asc == 1){
             NohLocacao p = inicio;
@@ -78,4 +92,11 @@ public class Locacoes {
 
     }
 
+    public NohLocacao getInicio() {
+        return inicio;
+    }
+
+    public NohLocacao getFim() {
+        return fim;
+    }
 }

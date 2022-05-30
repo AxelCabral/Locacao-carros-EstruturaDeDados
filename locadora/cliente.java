@@ -1,6 +1,6 @@
 package locadora;
 
-public class Cliente{
+class Cliente{
     private String nome;
     private String CNH;
     private String telefone;
@@ -39,6 +39,11 @@ public class Cliente{
     }
     public void setCPF(String CPF) {
         this.CPF = CPF;
+    }
+
+    @Override
+    public String toString() {
+        return "CNH=" + CNH + ", CPF=" + CPF + ", nome=" + nome + ", telefone=" + telefone;
     }
 
 }

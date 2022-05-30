@@ -77,4 +77,11 @@ public class Veiculo {
         this.categoria = categoria;
     }
 
+
+    @Override
+    public String toString() {
+        return "ano=" + ano + ", categoria=" + categoria + ", marca=" + marca + ", modelo=" + modelo
+                + ", num_lugares=" + num_lugares + ", placa=" + placa + ", potencia=" + potencia;
+    }
+
 }

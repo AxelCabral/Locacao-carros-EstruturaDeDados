@@ -52,4 +52,10 @@ public class Locacao {
         this.valor = valor;
     }
 
+    @Override
+    public String toString() {
+        return "CNH=" + CNH + ", dataEntrega=" + dataEntrega + ", dataRetirada=" + dataRetirada + ", placa="
+                + placa + ", valor=" + valor;
+    }
+
 }

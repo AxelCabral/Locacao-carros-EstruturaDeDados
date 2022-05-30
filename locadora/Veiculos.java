@@ -58,6 +58,14 @@ public class Veiculos {
         return p;
     }
 
+
+    public boolean existeVeiculoPorCategoria(NohVeiculos p, int id){
+        while (p!=null && p.getVeiculo().getCategoria().getId() != id ){//busca
+            p = p.getProx();
+        }
+        return p != null;
+    }
+
     public void imprime(int asc){
         if(asc == 1){
             NohVeiculos p = inicio;
@@ -90,4 +98,19 @@ public class Veiculos {
         }
     }
 
+    public NohVeiculos getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(NohVeiculos inicio) {
+        this.inicio = inicio;
+    }
+
+    public NohVeiculos getFim() {
+        return fim;
+    }
+
+    public void setFim(NohVeiculos fim) {
+        this.fim = fim;
+    }
 }
